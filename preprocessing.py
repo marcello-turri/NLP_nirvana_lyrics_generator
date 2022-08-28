@@ -7,14 +7,6 @@ from keras.preprocessing.sequence import pad_sequences
 class Preproccessor:
     def __init__(self):
         self.path = "nirvana_lyrics.txt"
-        self.total_words =0
-        self.max_sequence_len = 0
-
-    def get_total_words(self):
-        return self.total_words
-
-    def get_max_sequence_len(self):
-        return self.max_sequence_len
 
     def importing_dataset(self):
         f = open(self.path,'r')

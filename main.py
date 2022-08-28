@@ -13,4 +13,5 @@ model = Model(total_words,max_sequence_len)
 model.compile()
 model.fit(xs,ys,epochs=60)
 print(model.predict_new_text("Hi this is me",tokenizer,20))
+print(model.predict_new_text("what do you think about",tokenizer,20))
 
