@@ -1,6 +1,6 @@
 import tensorflow as tf
 from preprocessing import Preproccessor
-from keras.preprocessing.sequence import pad_sequences
+from keras.utils import pad_sequences
 import numpy as np
 
 class Model():

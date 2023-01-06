@@ -2,7 +2,7 @@ import tensorflow as tf
 import numpy as np
 import neattext as nt
 from keras.preprocessing.text import Tokenizer
-from keras.preprocessing.sequence import pad_sequences
+from keras.utils import pad_sequences
 
 class Preproccessor:
     def __init__(self):
@@ -52,8 +52,8 @@ class Preproccessor:
         return np.array(pad_sequences(input_sequences,maxlen=max_sequence_len,padding='pre'))
 
     def split_data_into_x_and_y(self,input_sequences,total_words):
-        xs = input_sequences[:, :-1]
-        labels = input_sequences[:, -1]
-        ys = tf.keras.utils.to_categorical(labels, num_classes=total_words)
+        xs = input_sequences[:, :-1]  # [ 0 0 0 0 0 0 326 327] -> xs = [ 0 0 0 0 0 0 326]
+        labels = input_sequences[:, -1] # [327]
+        ys = tf.keras.utils.to_categorical(labels, num_classes=total_words) # [327, 247, 118, 138 ...] -> [0 ... 1 ...0][0 ..1...0]...
         return xs,ys
 
